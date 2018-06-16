@@ -26,3 +26,4 @@
 # LIST PROJECT UDP
 - Echo Reply
 - Login Server
+- Simple Calculator
