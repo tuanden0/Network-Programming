@@ -26,19 +26,19 @@ int main(int argc, char *argv[]){
 	/* Do something */
 	while(1){
 		int a_len=0, b_len=0;
-		bzero(&server, sizeof(server));
+		bzero(buffer, sizeof(buffer));
 		recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&cli);
 		printf("Client user: %s",buffer);
 		a_len=strlen(buffer)-1; //remove '/n' 
 		buffer[a_len]='\0';	//when using fgets
 		strcpy(u,buffer);
-		bzero(&server, sizeof(server));
+		bzero(buffer, sizeof(buffer));
 		recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&cli);
 		printf("Client password: %s",buffer);
 		b_len=strlen(buffer)-1; //remove '/n' 
 		buffer[b_len]='\0'; //when using fgets
 		strcpy(p,buffer);
-		bzero(&server, sizeof(server));
+		bzero(buffer, sizeof(buffer));
 		if(strcmp(user,u)==0 && strcmp(pass,p)==0){
 			strcpy(buffer,"Congrats, <root>!\n");
 			sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,cli);
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
 			sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,cli);
 			count++;
 			if(count>3){
-				bzero(&server, sizeof(server));
+				bzero(buffer, sizeof(buffer));
 				strcpy(buffer,"You’ve input wrong username/password more than 3 times, Server will close this connect.\n");
 				sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,cli);
 				break;
