@@ -21,6 +21,7 @@
 - Remove ONE Space
 - Simple Calculator
 - Reversed text
+- Login Server
 
 # LIST PROJECT UDP
 - Echo Reply
