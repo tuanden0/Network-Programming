@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
 		count++;
 		if(count>3){
 			bzero(&buffer, sizeof(buffer));
-			recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&len);
+			recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&cli);
 			printf("Server: %s", buffer);
 			break;
 		}
