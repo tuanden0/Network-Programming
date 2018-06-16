@@ -26,7 +26,8 @@ int main(int argc, char *argv[]){
 	/* Accept */
 	newsock=accept(sock,(struct sockaddr *)0,0);
 	while(1){
-		int i=0,j=0,k=0,l=0,n=0,flag=0,c=0,d=0,e=0;
+		int i=0,j=0,k=0,l=0,n=0,flag=0;
+		float e=0, s=0, c=0, d=0;
 		char a[10],b[10];
 		bzero(&buffer, sizeof(buffer));
 		n=read(newsock, buffer,sizeof(buffer));
@@ -54,31 +55,30 @@ int main(int argc, char *argv[]){
 		for(j=0;j<=n;j++){
 			a[j]=buffer[j];
 		}
-		c=atoi(a);
+		c=atof(a);
 		for(k=0;k<l;k++){
 			b[k]=buffer[n+1];
 			n++;
 		}
-		d=atoi(b);
+		d=atof(b);
 		if(flag==0){
 			bzero(&buffer, sizeof(buffer));
 			e=c+d;
-			sprintf(buffer,"%d",e);
+			sprintf(buffer,"%.2f",e);
 			write(newsock, buffer, sizeof(buffer));
 		} else if(flag==1){
 			bzero(&buffer, sizeof(buffer));
 			e=c-d;
-			sprintf(buffer,"%d",e);
+			sprintf(buffer,"%.2f",e);
 			write(newsock, buffer, sizeof(buffer));
 		} else if(flag==2){
 			bzero(&buffer, sizeof(buffer));
 			e=c*d;
-			sprintf(buffer,"%d",e);
+			sprintf(buffer,"%.2f",e);
 			write(newsock, buffer, sizeof(buffer));
 		} else{
 			bzero(&buffer, sizeof(buffer));
-			float s;
-			s=(float)c/d;
+			s=c/d;
 			sprintf(buffer,"%.2f",s);
 			write(newsock, buffer, sizeof(buffer));
 		}
