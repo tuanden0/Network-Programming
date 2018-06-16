@@ -1,6 +1,4 @@
-# Network-Programming
-# Socket programming using C
-
+# Network-Programming using C
 # HOW TO USE
 - Using GCC at least 4.x.x to compile
 - Server:
@@ -26,3 +24,4 @@
 
 # LIST PROJECT UDP
 - Echo Reply
+- Login Server
