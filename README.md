@@ -27,3 +27,4 @@
 - Echo Reply
 - Login Server
 - Simple Calculator
+- Simple Chat
