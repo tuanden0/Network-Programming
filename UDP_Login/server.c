@@ -48,6 +48,7 @@ int main(int argc, char *argv[]){
 			sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,cli);
 			count++;
 			if(count==3){
+				bzero(&server, sizeof(server));
 				strcpy(buffer,"You’ve input wrong username/password more than 3 times, Server will close this connect.\n");
 				sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,cli);
 				break;
