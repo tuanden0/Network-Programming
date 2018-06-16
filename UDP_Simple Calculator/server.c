@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
 		int i=0,j=0,k=0,l=0,n=0,flag=0;
 		float e=0, s=0, c=0, d=0;
 		char a[10],b[10];
-		bzero(&server, sizeof(server));
+		bzero(&buffer, sizeof(buffer));
 		recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&cli);
 		printf("Client: %s",buffer);
 		while(buffer[i]!='\0'){
