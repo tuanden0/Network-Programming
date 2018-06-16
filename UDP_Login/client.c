@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 	server.sin_port=htons(5000);
 	hp=gethostbyname(argv[1]);
 	memcpy(&server.sin_addr, hp->h_addr, hp->h_length);
-	len=sizeof(server);
+	len=sizeof(struct sockaddr_in);
 	/* Do somwthing */
 	while(1){
 		bzero(buffer, sizeof(buffer));
