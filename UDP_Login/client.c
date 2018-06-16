@@ -34,6 +34,13 @@ int main(int argc, char *argv[]){
 		bzero(buffer, sizeof(buffer));
 		recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&len);
 		printf("Server: %s", buffer);
+		count++;
+		if(count>3){
+			bzero(&buffer, sizeof(buffer));
+			recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&len);
+			printf("Server: %s", buffer);
+			break;
+		}
 	}
 	close(sock);
 	return 0;
