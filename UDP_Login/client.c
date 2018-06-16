@@ -10,7 +10,7 @@
 int main(int argc, char *argv[]){
 	/* UDP */
 	/* Variables */
-	int sock, len, n;
+	int sock, cli, n;
 	struct sockaddr_in server, client;
 	struct hostent *hp;
 	char buffer[1024];
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 	server.sin_port=htons(5000);
 	hp=gethostbyname(argv[1]);
 	memcpy(&server.sin_addr, hp->h_addr, hp->h_length);
-	len=sizeof(struct sockaddr_in);
+	cli=sizeof(struct sockaddr_in);
 	/* Do somwthing */
 	while(1){
 		bzero(buffer, sizeof(buffer));
@@ -30,9 +30,9 @@ int main(int argc, char *argv[]){
 		bzero(buffer, sizeof(buffer));
 		printf("Your password: ");
 		fgets(buffer,sizeof(buffer),stdin);
-		sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&server,len);
+		sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&server,cli);
 		bzero(buffer, sizeof(buffer));
-		recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&len);
+		recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&cli);
 		printf("Server: %s", buffer);
 		count++;
 		if(count>3){
