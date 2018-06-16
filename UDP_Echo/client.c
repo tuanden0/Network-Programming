@@ -10,7 +10,7 @@
 int main(int argc, char *argv[]){
 	/* UDP */
 	/* Variables */
-	int sock, len, n;
+	int sock, cli, n;
 	struct sockaddr_in server, client;
 	struct hostent *hp;
 	char buffer[1024];
@@ -26,9 +26,9 @@ int main(int argc, char *argv[]){
 		bzero(buffer, sizeof(buffer));
 		printf("Your message: ");
 		fgets(buffer,sizeof(buffer),stdin);
-		sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&server,len);
+		sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&server,cli);
 		bzero(buffer, sizeof(buffer));
-		recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&len);
+		recvfrom(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&client,&cli);
 		printf("Server: %s", buffer);
 	}
 	close(sock);
