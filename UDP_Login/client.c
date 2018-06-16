@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
 		bzero(buffer, sizeof(buffer));
 		printf("Your username: ");
 		fgets(buffer,sizeof(buffer),stdin);
-		sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&server,len);
+		sendto(sock,buffer,sizeof(buffer),0,(struct sockaddr *)&server,cli);
 		bzero(buffer, sizeof(buffer));
 		printf("Your password: ");
 		fgets(buffer,sizeof(buffer),stdin);
