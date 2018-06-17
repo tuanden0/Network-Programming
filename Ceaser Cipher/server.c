@@ -41,6 +41,9 @@ int main(int argc, char *argv[]){
 		read(newsock, buffer,sizeof(buffer));
 		printf("Client key: %s", buffer);
 		key=atoi(buffer);
+		if(key>26){
+			key=key%26;
+		}
 		for(i=0;i<strlen(text)-1;i++){
 			if(islower(text[i])){
             			text[i]=(text[i]+key-97)%26+97;
