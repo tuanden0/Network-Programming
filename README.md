@@ -20,8 +20,9 @@
 - Check Right Triangle
 - Remove ONE Space
 - Simple Calculator
-- Reversed text
+- Reversed Text
 - Login Server
+- Transfer Content File
 
 # LIST PROJECT UDP
 - Echo Reply
