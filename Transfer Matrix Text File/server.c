@@ -69,7 +69,7 @@ int main(int argc, char *argv[]){
 			strcpy(buffer,"Can't create the matrix\n");
 			write(newsock, buffer, sizeof(buffer));
 		}
-		
+		fclose(file);
 	}
 	close(newsock);
 	return 0;
