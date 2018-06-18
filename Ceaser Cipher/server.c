@@ -6,7 +6,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-void matrix(int r, int c);
 int main(int argc, char *argv[]){
 	/* TCP */
 	/* Variables */
