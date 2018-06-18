@@ -50,6 +50,7 @@ int main(int argc, char *argv[]){
 			strcpy(buffer,content);
 			write(newsock, buffer, sizeof(buffer));
 		} else {
+			fclose(file);
 			bzero(&buffer, sizeof(buffer));
 			strcpy(buffer,"File doesn't exist\n");
 			write(newsock, buffer, sizeof(buffer));
